@@ -1,18 +1,18 @@
 const task = require("../models/todoModel");
 
 // add task
-const addTask = async (request, response) => {
+const addTask = async (req, res) => {
   try {
     const newTodo = await task.create({
-      name: request.body.name,
-      description: request.body.description,
+      name: req.body.name,
+      description: req.body.description,
     });
 
     await newTodo.save();
 
-    return response.status(200).json(newTodo);
+    return res.status(200).json(newTodo);
   } catch (error) {
-    return response.status(500).json(error.message);
+    return res.status(500).json(error.message);
   }
 };
 
@@ -27,4 +27,23 @@ const getTask = async (req, res) => {
   });
 };
 
-module.exports = { addTask, getTask };
+// const updateTask = async (req, res) => {
+//   const data = await task.findByIdAndUpdate(req.params.id, req.body, {
+//     new: true,
+//   });
+//   return res.status(200).json(data);
+// };
+const updateTask = async (req, res) => {
+  const data = await task.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+  });
+  console.log("data");
+
+  // res.status(200).json({
+  //   message: "success",
+  //   data: {
+  //     updateTask,
+  //   },
+  // });
+};
+module.exports = { addTask, getTask, updateTask };
