@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const PORT = 4400;
+const PORT = 3000;
 
 // Require dbConnection
 const { connectToMongoDb } = require("./config/dbConnection");
