@@ -14,6 +14,15 @@ connectToMongoDb("mongodb://127.0.0.1:27017/TODO_APP")
     console.log("database is not connected");
   });
 
+// required router file
+const taskRouter = require("./routes/taskRouter");
+
+// add middleware for data coming from body
+app.use(express.json());
+
+// creating a task routes
+app.use("/", taskRouter);
+
 app.listen(PORT, (err) => {
   if (err) {
     console.log("error");
