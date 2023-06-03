@@ -6,7 +6,7 @@ const PORT = 4400;
 const { connectToMongoDb } = require("./config/dbConnection");
 
 // database connection
-connectToMongoDb("mongodb://127.0.0.1:27017/TodoAPP_NODEJS")
+connectToMongoDb("mongodb://127.0.0.1:27017/TODO_APP")
   .then(() => {
     console.log("database is connected");
   })
