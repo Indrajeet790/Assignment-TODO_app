@@ -16,6 +16,7 @@ const addTask = async (request, response) => {
   }
 };
 
+// getTask by id
 const getTask = async (req, res) => {
   const data = await task.findById(req.params.id);
   // console.log(req.params.id);
